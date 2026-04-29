@@ -1,0 +1,140 @@
+<header class="container mt-[33px] relative">
+  <div class="border-b-2 pb-[17px]">
+    <nav class="flex justify-between items-center">
+      <!-- Лого -->
+      <a [routerLink]="['/']" class="flex items-center gap-2">
+        <img
+          src="../../../assets/icon/logo.svg"
+          alt=""
+          class="sm:w-[25px] md:w-[32px] xl:w-[45px]"
+          (click)="closeMenu()"
+        />
+        <span
+          class="text-[rgba(108,95,188,1)] font-poppins_semiBold sm:text-[14px] md:text-[17px] xl:text-[21px]"
+          >eatly</span
+        >
+      </a>
+
+      <ul
+        class="font-inter_medium text-[rgba(96,96,96,1)] hidden md:flex sm:gap-[25px] md:gap-[38px] xl:gap-[50px] md:text-[12px] xl:text-[17px]"
+      >
+        <li class="duration-300 hover:text-[rgba(108,95,188,1)]">
+          <a
+            [routerLink]="['/menu']"
+            тп="text-[rgba(108,95,188,1)]"
+            >Menu</a
+          >
+        </li>
+        <li class="duration-300 hover:text-[rgba(108,95,188,1)]">
+          <a
+            [routerLink]="['/blog']"
+            routerLinkActive="text-[rgba(108,95,188,1)]"
+            >Blog</a
+          >
+        </li>
+        <li class="duration-300 hover:text-[rgba(108,95,188,1)]">
+          <a
+            [routerLink]="['/pricing-page']"
+            routerLinkActive="text-[rgba(108,95,188,1)]"
+            >Pricing</a
+          >
+        </li>
+        <li class="duration-300 hover:text-[rgba(108,95,188,1)]">
+          <a
+            [routerLink]="['/container']"
+            routerLinkActive="text-[rgba(108,95,188,1)]"
+            >Contact</a
+          >
+        </li>
+      </ul>
+
+      <div
+        class="hidden md:flex items-center gap-6 font-inter_bold md:text-[12px] xl:text-[17px]"
+      >
+        <button class="text-[rgba(96,96,96,1)]" (click)="openLogin()">
+          Login
+        </button>
+        <button
+          (click)="openSingUp()"
+          class="bg-[rgba(108,95,188,1)] md:px-[19px] md:py-[12px] xl:px-[26px] xl:py-[15px] rounded-[17px] text-white border duration-300 hover:text-[rgba(108,95,188,1)] hover:border hover:border-[rgba(108,95,188,1)] hover:bg-white"
+        >
+          Sign up
+        </button>
+      </div>
+
+      <!-- Бургер -->
+      <button
+        class="md:hidden flex flex-col gap-[5px] p-2 z-30"
+        (click)="toggleMenu()"
+      >
+        <span
+          class="block w-[22px] h-[2px] bg-[#201F1F] rounded transition-all duration-300"
+          [class.rotate-45]="menuOpen"
+          [class.translate-y-[7px]]="menuOpen"
+        ></span>
+        <span
+          class="block w-[22px] h-[2px] bg-[#201F1F] rounded transition-all duration-300"
+          [class.opacity-0]="menuOpen"
+        ></span>
+        <span
+          class="block w-[22px] h-[2px] bg-[#201F1F] rounded transition-all duration-300"
+          [class.-rotate-45]="menuOpen"
+          [class.-translate-y-[7px]]="menuOpen"
+        ></span>
+      </button>
+    </nav>
+
+    <!-- Мобильное меню -->
+    <div
+      class="md:hidden bg-[#f9f9f9] fixed top-[0px] right-[0] w-[75%] h-full z-20 pt-[80px] pl-6 border flex flex-col gap-4 font-inter_medium text-[rgba(96,96,96,1)] text-[25px] duration-300"
+      [ngClass]="
+        menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+      "
+    >
+      @for (item of menus; track item.id) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="text-[rgba(108,95,188,1)]"
+          (click)="menuOpen = false"
+          (click)="goTo(item.path)"
+          class="font-inter_medium"
+        >
+          {{ item.title }}
+        </a>
+      }
+      <div class="flex gap-4 pt-2">
+        <button
+          class="text-[rgba(96,96,96,1)] font-inter_bold text-[20px] border border-2 rounded-[12px] px-[19px] py-[10px]"
+          (click)="openLogin(); menuOpen = false"
+        >
+          Login
+        </button>
+        <button
+          (click)="openSingUp(); menuOpen = false"
+          class="bg-[rgba(108,95,188,1)] px-[19px] py-[10px] rounded-[12px] text-white text-[20px] font-inter_bold"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<header class="bg-[#0c1b2a] sticky top-0 z-[10]">
+  <nav class="container bg-[#0c1b2a] flex  ">
+    <div
+      class="text-[#c9a84c] uppercase text-[18px] leading-[1.2] tracking-[0.5px]"
+    >
+      BRIGHT-LAWYER
+      <small class="text-[10px] tracking-[2px] block">advokatlik byurosi</small>
+    </div>
+    <div class="flex gap-[30px] text-[rgba(255,255,255,0.7)] ">
+        <a class="transition-colors duration-1000 hover:text-[#c9a84c]">Xizmatlar</a>
+        <a class="hover:text-[#c9a84c]">Ishlar</a>
+        <a class="hover:text-[#c9a84c]">Sertifikatlar</a>
+        <a class="hover:text-[#c9a84c]">Video</a>
+        <a class="hover:text-[#c9a84c]">Fikrlar</a>
+        <a class="hover:text-[#c9a84c]">Aloqa</a>
+    </div>
+  </nav>
+</header>
