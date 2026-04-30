@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        playfairDisplay_medium:["PlayfairDisplay-Medium"],
+        nunito_sans:['Nunito_Sans']
+      }
+    },
   },
   plugins: [],
 };

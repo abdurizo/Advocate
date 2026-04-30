@@ -34,6 +34,16 @@ constructor(private router: Router) {}
       title: 'Contact',
       path: '/contact',
     },
+    {
+      id: 5,
+      title: 'Contact',
+      path: '/contact',
+    },
+    {
+      id: 6,
+      title: 'Contact',
+      path: '/contact',
+    },
   ];
   modalType: 'login' | 'sing_up' | null = null;
   /**
